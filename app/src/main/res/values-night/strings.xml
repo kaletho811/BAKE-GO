@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto">En Bake-Go encuentras postres caseros listos para ti. Haz clic en comenzar y date un gusto.</string>
+    <string name="comenzar">Comenzar</string>
+    <string name="registrate">Registrate</string>
+    <string name="bake_go"><![CDATA[BAKE&GO]]></string>
+    <string name="inicio_de_sesion">Inicio de Sesion</string>
+    <string name="ingresa_tu_correo">Ingresa tu correo</string>
+    <string name="ingresa_tu_contrase_a">Ingresa tu contraseña</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="recupera_tu_contrase_a">Recupera tu contraseña</string>
+    <string name="ingresa_con_google">Ingresa con google</string>
+    <string name="no_tienes_cuenta">No tienes cuenta?</string>
+    <string name="registrate_login">Registrate</string>
+    <string name="registro">Registro</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="correo">correo</string>
+    <string name="direccion">Direccion</string>
+    <string name="he_leido_y_acepto_los">He leido y acepto los</string>
+    <string name="contrase_a">contraseña</string>
+    <string name="telefono">Telefono</string>
+    <string name="terminos_y_condiciones">Terminos y condiciones</string>
+    <string name="registrarse">Registrarse</string>
+</resources>
