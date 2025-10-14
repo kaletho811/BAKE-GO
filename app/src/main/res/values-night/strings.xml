@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto">En Bake-Go encuentras postres caseros listos para ti. Haz clic en comenzar y date un gusto.</string>
-    <string name="comenzar">Comenzar</string>
+    <string name="comenzar">COMENZAR</string>
     <string name="registrate">Registrate</string>
     <string name="bake_go"><![CDATA[BAKE&GO]]></string>
     <string name="inicio_de_sesion">Inicio de Sesion</string>
@@ -22,4 +22,46 @@
     <string name="telefono">Telefono</string>
     <string name="terminos_y_condiciones">Terminos y condiciones</string>
     <string name="registrarse">Registrarse</string>
+    <string name="terminos_y_condiciones_titulo">TERMINOS Y CONDICIONES</string>
+    <string name="ultima_actualizacion_05_09_2025">Ultima actualizacion: 05/09/2025</string>
+    <string name="bienvenido_a_bake_go_al_acceder_y_utilizar_nuestra_aplicacion_aceptas_los_siguientes_terminos_y_condiciones_te_recomendamos_leerlos_cuidadosamente_antes_de_continuar"><![CDATA[Bienvenido a BAKE&GO. Al acceder y utilizar nuestra aplicacion, aceptas los siguientes terminos y condiciones. Te recomendamos leerlos cuidadosamente antes de continuar.]]></string>
+    <string name="tu_informaci_n_ser_tratada_con_confidencialidad_y_no_ser_compartida_con_terceros_sin_tu_consentimiento_al_registrarte_confirmas_que_los_datos_ingresados_son_ver_dicos_y_que_eres_mayor_de_edad_para_m_s_detalles_consulta_la_versi_n_completa_en_nuestro_sitio_web_o_cont_ctanos_directamente_desde_la_app">Tu información será tratada con confidencialidad y no será compartida con terceros sin tu consentimiento. Al registrarte, confirmas que los datos ingresados son verídicos y que eres mayor de edad. Para más detalles, consulta la versión completa en nuestro sitio web o contáctanos directamente desde la app.</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="recuperaci_n_de_contrase_a">Recuperación de contraseña</string>
+    <string name="olvidaste_tu_contrase_a">Olvidaste tu contraseña?</string>
+    <string name="ingresa_un_correo_electronico_para_enviarte_un_codigo_de_recuperaci_n">Ingresa un correo electronico para enviarte un codigo de recuperación</string>
+    <string name="enviar_codigo">ENVIAR CODIGO</string>
+    <string name="explora_nuestros_productos_y_haz_tu_pedido">Explora nuestros productos y haz tu pedido</string>
+    <string name="mi_perfil">MI PERFIL</string>
+    <string name="nombre_perf">NOMBRE:</string>
+    <string name="apellido">APELLIDO:</string>
+    <string name="correo_perf">CORREO:</string>
+    <string name="telefono_perf">TELEFONO:</string>
+    <string name="dirreccion">DIRRECCION:</string>
+    <string name="editar_perfil">EDITAR PERFIL</string>
+    <string name="tus_pedidos">TUS PEDIDOS</string>
+    <string name="edicion_de_perfil">EDICION DE PERFIL</string>
+    <string name="cambiar_contrase_a">cambiar contraseña</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="tus_pedidos_titulo">TUS PEDIDOS</string>
+    <string name="a_adir_al_carrito">Añadir al carrito</string>
+    <string name="comprar">COMPRAR</string>
+    <string name="total">TOTAL:$$$$</string>
+    <string name="vigila_tu_pedido">Vigila tu pedido</string>
+    <string name="confirmacion_de_datos">Confirmacion de datos</string>
+    <string name="apellido_conf">APELLIDO:</string>
+    <string name="correo_conf">CORREO:</string>
+    <string name="telefono_conf">TELEFONO:</string>
+    <string name="direccion_conf">DIRECCION:</string>
+    <string name="medios_de_pago">Medios de pago</string>
+    <string name="lapiz_xd">.</string>
+    <string name="targeta_credito">TARGETA CREDITO:</string>
+    <string name="tarjeta_debito">TARJETA DEBITO:</string>
+    <string name="pse">PSE:</string>
+    <string name="contraentrega">CONTRAENTREGA:</string>
+    <string name="confirmar">CONFIRMAR</string>
+    <string name="estado">ESTADO:</string>
+    <string name="telefono_vigi">TELEFONO:</string>
+    <string name="direccion_vigi">DIRECCION:</string>
+    <string name="tiempo_de_espera">TIEMPO DE ESPERA:</string>
 </resources>

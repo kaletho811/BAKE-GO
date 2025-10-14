@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    tools:context=".Fragments.ConfirmacionFragment">
+
+    <TextView
+        android:id="@+id/nom_app_Confirmacion"
+        android:layout_width="307dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="55sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/Titulo_confirm"
+        android:layout_width="278dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/confirmacion_de_datos"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nom_app_Confirmacion" />
+
+    <TextView
+        android:id="@+id/corr_conf"
+        android:layout_width="318dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/correo_conf"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ape_conf" />
+
+    <TextView
+        android:id="@+id/ape_conf"
+        android:layout_width="318dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/apellido_conf"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nom_conf" />
+
+    <TextView
+        android:id="@+id/nom_conf"
+        android:layout_width="318dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/nombre_conf"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo_confirm" />
+
+    <TextView
+        android:id="@+id/dire_conf"
+        android:layout_width="318dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/direccion_conf"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tel_conf" />
+
+    <TextView
+        android:id="@+id/tel_conf"
+        android:layout_width="318dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/telefono_conf"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/corr_conf" />
+
+    <TextView
+        android:id="@+id/Titulo2_confirm"
+        android:layout_width="278dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/medios_de_pago"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dire_conf" />
+
+    <Button
+        android:id="@+id/btn_edit_conf"
+        android:layout_width="56dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="312dp"
+        android:backgroundTint="@color/amarillo"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/lapiz_xd"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/dire_conf"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/Lapiz_edit_conf"
+        android:layout_width="30dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_lapiz"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_edit_conf"
+        app:layout_constraintEnd_toEndOf="@+id/btn_edit_conf"
+        app:layout_constraintStart_toEndOf="@+id/dire_conf"
+        app:layout_constraintTop_toTopOf="@+id/btn_edit_conf" />
+
+    <TextView
+        android:id="@+id/cred_conf"
+        android:layout_width="199dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/targeta_credito"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo2_confirm" />
+
+    <TextView
+        android:id="@+id/deb_conf"
+        android:layout_width="181dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/tarjeta_debito"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cred_conf" />
+
+    <TextView
+        android:id="@+id/pse_conf"
+        android:layout_width="64dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/pse"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deb_conf" />
+
+    <TextView
+        android:id="@+id/cont_entr_conf"
+        android:layout_width="195dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/contraentrega"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pse_conf" />
+
+    <Button
+        android:id="@+id/btn_conf_datos"
+        android:layout_width="312dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/amarillo"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/confirmar"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cont_entr_conf" />
+</androidx.constraintlayout.widget.ConstraintLayout>
