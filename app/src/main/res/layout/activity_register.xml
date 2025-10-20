@@ -1,183 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
+    android:background="@color/fondo"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/nom_App_regis"
-        android:layout_width="236dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/kavoon"
-        android:text="@string/bake_go"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
 
-    <TextView
-        android:id="@+id/Titulo_Regis"
-        android:layout_width="130dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/kavoon"
-        android:text="@string/registro"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nom_App_regis" />
+        <TextView
+            android:id="@+id/nom_App_regis"
+            android:layout_width="236dp"
+            android:layout_height="60dp"
+            android:fontFamily="@font/kavoon"
+            android:text="@string/bake_go"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="48sp" />
 
+        <TextView
+            android:id="@+id/Titulo_Regis"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/kavoon"
+            android:text="@string/registro"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
+        <EditText
+            android:id="@+id/camp_nom"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/nombre"
+            android:autofillHints="name" />
 
-    <EditText
-        android:id="@+id/camp_nom"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:layout_marginTop="44dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo_Regis" />
+        <EditText
+            android:id="@+id/camp_apellido"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/apellidos"
+            android:autofillHints="familyName" />
 
-    <EditText
-        android:id="@+id/camp_apellido"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/apellidos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camp_nom" />
+        <EditText
+            android:id="@+id/camp_corr_regis"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/correo"
+            android:autofillHints="emailAddress" />
 
-    <EditText
-        android:id="@+id/camp_corr_regis"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camp_apellido" />
+        <EditText
+            android:id="@+id/camp_tel"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="@string/telefono"
+            android:autofillHints="phone" />
 
-    <EditText
-        android:id="@+id/camp_tel"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="@string/telefono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camp_corr_regis" />
+        <EditText
+            android:id="@+id/camp_contr_regis"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/contrase_a"
+            android:autofillHints="password" />
 
-    <EditText
-        android:id="@+id/camp_contr_regis"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/contrase_a"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camp_tel" />
+        <EditText
+            android:id="@+id/camp_direccion"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="@string/direccion"
+            android:autofillHints="postalAddress" />
 
-    <EditText
-        android:id="@+id/camp_direccion"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/direccion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camp_contr_regis" />
+        <!-- Contenedor para CheckBox y Link -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp">
 
-    <CheckBox
-        android:id="@+id/chulo_regis"
-        android:layout_width="179dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/he_leido_y_acepto_los"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camp_direccion" />
+            <CheckBox
+                android:id="@+id/chulo_regis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kadwa"
+                android:text="@string/he_leido_y_acepto_los" />
 
-    <TextView
-        android:id="@+id/link_term_cond_regis"
-        android:layout_width="165dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/kadwa"
-        android:textColor="@color/amarillo"
-        android:text="@string/terminos_y_condiciones"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/chulo_regis"
-        app:layout_constraintTop_toBottomOf="@+id/camp_direccion" />
+            <TextView
+                android:id="@+id/link_term_cond_regis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kadwa"
+                android:textColor="@color/amarillo"
+                android:text="@string/terminos_y_condiciones"
+                android:layout_marginStart="4dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_regis"
-        android:layout_width="214dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/kadwa"
-        android:backgroundTint="@color/amarillo"
-        android:text="@string/registrarse"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chulo_regis" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_regis"
+            android:layout_width="214dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/kadwa"
+            android:backgroundTint="@color/amarillo"
+            android:text="@string/registrarse"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>

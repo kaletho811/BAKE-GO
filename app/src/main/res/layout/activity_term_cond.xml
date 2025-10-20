@@ -1,76 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
+    android:background="@color/fondo"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/Titulo_term_cond"
-        android:layout_width="355dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/kavoon"
-        android:text="@string/terminos_y_condiciones_titulo"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
 
-    <TextView
-        android:id="@+id/texto1_term"
-        android:layout_width="318dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/ultima_actualizacion_05_09_2025"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo_term_cond" />
+        <TextView
+            android:id="@+id/Titulo_term_cond"
+            android:layout_width="355dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kavoon"
+            android:text="@string/terminos_y_condiciones_titulo"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="48sp" />
 
-    <TextView
-        android:id="@+id/texto2_term"
-        android:layout_width="358dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/bienvenido_a_bake_go_al_acceder_y_utilizar_nuestra_aplicacion_aceptas_los_siguientes_terminos_y_condiciones_te_recomendamos_leerlos_cuidadosamente_antes_de_continuar"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto1_term" />
+        <TextView
+            android:id="@+id/texto1_term"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="28dp"
+            android:fontFamily="@font/kadwa"
+            android:text="@string/ultima_actualizacion_05_09_2025"
+            android:textColor="@color/black" />
 
-    <TextView
-        android:id="@+id/texto3_term"
-        android:layout_width="358dp"
-        android:layout_height="204dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/tu_informaci_n_ser_tratada_con_confidencialidad_y_no_ser_compartida_con_terceros_sin_tu_consentimiento_al_registrarte_confirmas_que_los_datos_ingresados_son_ver_dicos_y_que_eres_mayor_de_edad_para_m_s_detalles_consulta_la_versi_n_completa_en_nuestro_sitio_web_o_cont_ctanos_directamente_desde_la_app"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto2_term" />
+        <TextView
+            android:id="@+id/texto2_term"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"
+            android:fontFamily="@font/kadwa"
+            android:text="@string/bienvenido_a_bake_go_al_acceder_y_utilizar_nuestra_aplicacion_aceptas_los_siguientes_terminos_y_condiciones_te_recomendamos_leerlos_cuidadosamente_antes_de_continuar"
+            android:textColor="@color/black" />
 
-    <Button
-        android:id="@+id/btn_acep_term"
-        android:layout_width="217dp"
-        android:layout_height="67dp"
-        android:backgroundTint="@color/amarillo"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/aceptar"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/texto3_term"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"
+            android:fontFamily="@font/kadwa"
+            android:text="@string/tu_informaci_n_ser_tratada_con_confidencialidad_y_no_ser_compartida_con_terceros_sin_tu_consentimiento_al_registrarte_confirmas_que_los_datos_ingresados_son_ver_dicos_y_que_eres_mayor_de_edad_para_m_s_detalles_consulta_la_versi_n_completa_en_nuestro_sitio_web_o_cont_ctanos_directamente_desde_la_app"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btn_acep_term"
+            android:layout_width="217dp"
+            android:layout_height="67dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/amarillo"
+            android:fontFamily="@font/kadwa"
+            android:text="@string/aceptar"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>

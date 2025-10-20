@@ -1,171 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
+    android:fillViewport="true"
     tools:context=".Fragments.EditPerfilFragment">
 
-    <TextView
-        android:id="@+id/titulo_edit_perf"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/kavoon"
-        android:text="@string/edicion_de_perfil"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="131dp"
-        android:layout_height="111dp"
-        android:layout_marginTop="20dp"
-        android:padding="8dp"
-        android:src="@drawable/ic_perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo_edit_perf" />
+        <TextView
+            android:id="@+id/titulo_edit_perf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kavoon"
+            android:text="@string/edicion_de_perfil"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
 
-    <EditText
-        android:id="@+id/camp_nom_edit_perf"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/bordes_redondos"
-        android:ems="10"
-        android:fontFamily="@font/kadwa"
-        android:inputType="textPersonName"
-        android:text="@string/nombre"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintWidth_percent="0.85" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="32dp">
 
-    <EditText
-        android:id="@+id/camp_apellido_edit_perf"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/apellidos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.85"
-        app:layout_constraintTop_toBottomOf="@id/camp_nom_edit_perf"/>
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="131dp"
+                android:layout_height="111dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_perfil"/>
 
-    <EditText
-        android:id="@+id/camp_corr_edit_perf"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/correo"
-        android:text="@string/ingresa_tu_correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.85"
-        app:layout_constraintTop_toBottomOf="@id/camp_apellido_edit_perf"/>
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="34dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_lapiz"
+                android:layout_gravity="bottom|end"
+                android:contentDescription="Icono de edición"/>
+        </FrameLayout>
 
-    <EditText
-        android:id="@+id/camp_tel_edit_perf"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="@string/telefono"
-        android:text="@string/telefono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.85"
-        app:layout_constraintTop_toBottomOf="@id/camp_corr_edit_perf"/>
+        <EditText
+            android:id="@+id/camp_nom_edit_perf"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bordes_redondos"
+            android:ems="10"
+            android:fontFamily="@font/kadwa"
+            android:inputType="textPersonName"
+            android:text="@string/nombre"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
 
-    <EditText
-        android:id="@+id/camp_direccion_edit_perf"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/direccion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.85"
-        app:layout_constraintTop_toBottomOf="@id/camp_tel_edit_perf"/>
+        <EditText
+            android:id="@+id/camp_apellido_edit_perf"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/apellidos" />
 
-    <EditText
-        android:id="@+id/camp_contr_edit_perf"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bordes_redondos"
-        android:fontFamily="@font/kadwa"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/cambiar_contrase_a"
-        android:text="@string/cambiar_contrase_a"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.85"
-        app:layout_constraintTop_toBottomOf="@id/camp_direccion_edit_perf"/>
+        <EditText
+            android:id="@+id/camp_corr_edit_perf"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/correo"
+            android:text="@string/ingresa_tu_correo" />
 
-    <Button
-        android:id="@+id/btn_guardar_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:backgroundTint="@color/amarillo"
-        android:fontFamily="@font/kadwa"
-        android:minHeight="60dp"
-        android:paddingStart="40dp"
-        android:paddingEnd="40dp"
-        android:text="@string/guardar"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/camp_contr_edit_perf" />
+        <EditText
+            android:id="@+id/camp_tel_edit_perf"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/telefono"
+            android:text="@string/telefono" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="34dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="76dp"
-        android:src="@drawable/ic_lapiz"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/camp_direccion_edit_perf"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/direccion" />
+
+        <EditText
+            android:id="@+id/camp_contr_edit_perf"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bordes_redondos"
+            android:fontFamily="@font/kadwa"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/cambiar_contrase_a"
+            android:text="@string/cambiar_contrase_a" />
+
+        <Button
+            android:id="@+id/btn_guardar_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="@color/amarillo"
+            android:fontFamily="@font/kadwa"
+            android:minHeight="60dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="@string/guardar"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:cornerRadius="25dp" />
+
+    </LinearLayout>
+</ScrollView>

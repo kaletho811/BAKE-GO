@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
-
-    <TextView
-        android:id="@+id/texto_Inicio"
-        android:layout_width="364dp"
-        android:layout_height="130dp"
-        android:layout_marginBottom="272dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_com_ini"
-        android:layout_width="271dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/amarillo"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/comenzar"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto_Inicio" />
-
-    <TextView
-        android:id="@+id/link_regis_ini"
-        android:layout_width="77dp"
-        android:layout_height="31dp"
-        android:text="@string/registrate"
-        android:textColor="@color/amarillo"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_com_ini"
-        app:layout_constraintVertical_bias="0.245" />
+    android:background="@color/fondo"
+    android:fillViewport="true"> <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="293dp"
         android:layout_height="234dp"
-        app:layout_constraintBottom_toTopOf="@+id/texto_Inicio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="60dp"
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="Logo de la Aplicación" />
+
+    <TextView
+        android:id="@+id/texto_Inicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_com_ini"
+        android:layout_width="271dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/amarillo"
+        android:fontFamily="@font/kadwa"
+        android:text="@string/comenzar"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/link_regis_ini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/registrate"
+        android:textColor="@color/amarillo"
+        android:textSize="16sp" />
+
+</LinearLayout>
+</ScrollView>

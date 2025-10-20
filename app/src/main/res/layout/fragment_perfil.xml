@@ -1,158 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".Fragments.EditPerfilFragment">
+    android:fillViewport="true"
+    tools:context=".Fragments.PerfilFragment">
 
-    <TextView
-        android:id="@+id/titulo_perfil"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/kavoon"
-        android:text="@string/mi_perfil"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="32dp">
 
-    <ImageView
-        android:id="@+id/image_perf_mi_perf"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titulo_perfil"
-        android:background="@drawable/ic_perfil"
-        android:padding="8dp"/>
+        <TextView
+            android:id="@+id/titulo_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/kavoon"
+            android:text="@string/mi_perfil"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="48sp" />
 
-    <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/guideline_start"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintGuide_percent="0.1" />
+        <ImageView
+            android:id="@+id/image_perf_mi_perf"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_perfil"
+            android:contentDescription="Imagen de perfil del usuario"
+            android:background="@drawable/ic_perfil"
+            android:padding="8dp"/>
 
-    <TextView
-        android:id="@+id/nom_perf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/nombre_perf"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/image_perf_mi_perf"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="40dp"
+            android:paddingEnd="24dp"
+            android:layout_marginTop="40dp">
 
-    <TextView
-        android:id="@+id/ape_perf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/apellido"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/nom_perf"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/nom_perf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kadwa"
+                android:text="@string/nombre_perf"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/corr_perf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/correo_perf"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/ape_perf"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/ape_perf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/kadwa"
+                android:text="@string/apellido"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/tel_perf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/telefono_perf"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/corr_perf"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/corr_perf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/kadwa"
+                android:text="@string/correo_perf"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/dire_perf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/dirreccion"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/tel_perf"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/tel_perf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/kadwa"
+                android:text="@string/telefono_perf"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/btn_editar_perfil"
-        android:layout_width="234dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/amarillo"
-        android:fontFamily="@font/kadwa"
-        android:minHeight="60dp"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:text="@string/editar_perfil"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="25dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_pedidos_perf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/dire_perf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/kadwa"
+                android:text="@string/dirreccion"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_pedidos_perf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="60dp"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/amarillo"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/tus_pedidos"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:cornerRadius="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <FrameLayout
+            android:layout_width="234dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="42dp"
-        android:layout_height="35dp"
-        android:src="@drawable/ic_lapiz"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_editar_perfil"
-        app:layout_constraintEnd_toEndOf="@+id/btn_editar_perfil"
-        app:layout_constraintHorizontal_bias="0.023"
-        app:layout_constraintStart_toStartOf="@+id/btn_editar_perfil"
-        app:layout_constraintTop_toTopOf="@+id/btn_editar_perfil"
-        app:layout_constraintVertical_bias="0.56" />
+            <Button
+                android:id="@+id/btn_editar_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/amarillo"
+                android:fontFamily="@font/kadwa"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:text="@string/editar_perfil"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:cornerRadius="25dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="42dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_lapiz"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Icono de edición"/>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btn_pedidos_perf"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/amarillo"
+            android:fontFamily="@font/kadwa"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="@string/tus_pedidos"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:cornerRadius="25dp" />
+
+    </LinearLayout>
+</ScrollView>
