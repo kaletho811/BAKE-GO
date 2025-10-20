@@ -67,4 +67,9 @@
     <string name="telefono_vigi">TELEFONO:</string>
     <string name="direccion_vigi">DIRECCION:</string>
     <string name="tiempo_de_espera">TIEMPO DE ESPERA:</string>
+    <string name="c_u">$$$$$$ c/u</string>
+    <string name="gelatina_mosaico">GELATINA MOSAICO:</string>
+    <string name="postre_de_fresa">POSTRE DE FRESA:</string>
+    <string name="c_u_3">$$$$$$ c/u</string>
+    <string name="postre_de_limon">POSTRE DE LIMON:</string>
 </resources>
