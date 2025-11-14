@@ -33,7 +33,6 @@
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_perfil"
-            android:contentDescription="Imagen de perfil del usuario"
             android:background="@drawable/ic_perfil"
             android:padding="8dp"/>
 
@@ -121,8 +120,7 @@
                 android:layout_height="35dp"
                 android:src="@drawable/ic_lapiz"
                 android:layout_gravity="center_vertical|start"
-                android:layout_marginStart="8dp"
-                android:contentDescription="Icono de edición"/>
+                android:layout_marginStart="8dp" />
         </FrameLayout>
 
         <Button

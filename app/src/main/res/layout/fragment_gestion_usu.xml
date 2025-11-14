@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo">
+
+    <ImageView
+        android:id="@+id/ic_perfil_gest_usu"
+        android:layout_width="69dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:clickable="true"
+        android:contentDescription="@string/ir_al_perfil"
+        android:focusable="true"
+        app:layout_constraintEnd_toStartOf="@+id/nom_App_gest_usu"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_perfil" />
+
+    <TextView
+        android:id="@+id/nom_App_gest_usu"
+        android:layout_width="226dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/bake_go"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.711"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titulo_gest_usu"
+        android:layout_width="326dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/gestion_usuarios"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nom_App_gest_usu" />
+
+    <Button
+        android:id="@+id/btn_ver_usu"
+        android:layout_width="320dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/gris"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/ver_usuario"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_gest_usu" />
+
+    <Button
+        android:id="@+id/btn_edit_usu"
+        android:layout_width="320dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/gris"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/editar_usuario"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ver_usu" />
+
+    <Button
+        android:id="@+id/btn_elim_usu"
+        android:layout_width="320dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/gris"
+        android:fontFamily="@font/kavoon"
+        android:text="@string/eliminar_usuario"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_edit_usu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
