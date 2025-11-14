@@ -12,6 +12,7 @@
     android:gravity="center_horizontal"
     android:padding="16dp">
 
+<<<<<<< HEAD
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="293dp"
@@ -20,6 +21,8 @@
         app:srcCompat="@drawable/logo"
         android:contentDescription="Logo de la Aplicación" />
 
+=======
+>>>>>>> b50f39e3547415d6323486fc6f2b889c567a2a0b
     <TextView
         android:id="@+id/texto_Inicio"
         android:layout_width="match_parent"
@@ -48,7 +51,29 @@
         android:layout_marginTop="32dp"
         android:text="@string/registrate"
         android:textColor="@color/amarillo"
+<<<<<<< HEAD
         android:textSize="16sp" />
 
 </LinearLayout>
 </ScrollView>
+=======
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_com_ini"
+        app:layout_constraintVertical_bias="0.271" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="281dp"
+        android:layout_height="174dp"
+        app:layout_constraintBottom_toTopOf="@+id/texto_Inicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.407"
+        app:srcCompat="@drawable/logo" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> b50f39e3547415d6323486fc6f2b889c567a2a0b
