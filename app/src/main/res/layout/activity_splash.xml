@@ -1,41 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-=======
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> b50f39e3547415d6323486fc6f2b889c567a2a0b
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
-    android:fillViewport="true">
+    android:background="@color/fondo">
 
-<<<<<<< HEAD
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="284dp"
-            android:layout_height="252dp"
-            android:contentDescription="Logo de la aplicación"
-            app:srcCompat="@drawable/logo" />
-
-    </LinearLayout>
-</ScrollView>
-=======
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="335dp"
-        android:layout_height="270dp"
+        android:layout_width="348dp"
+        android:layout_height="331dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> b50f39e3547415d6323486fc6f2b889c567a2a0b
