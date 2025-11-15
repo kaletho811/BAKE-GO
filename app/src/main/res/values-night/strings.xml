@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">BAKE&amp;GO</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto">En Bake-Go encuentras postres caseros listos para ti. Haz clic en comenzar y date un gusto.</string>
-    <string name="comenzar">COMENZAR</string>
+    <string name="comenzar">Comenzar</string>
     <string name="registrate">Registrate</string>
     <string name="bake_go"><![CDATA[BAKE&GO]]></string>
     <string name="inicio_de_sesion">Inicio de Sesion</string>
     <string name="ingresa_tu_correo">Ingresa tu correo</string>
     <string name="ingresa_tu_contrase_a">Ingresa tu contraseña</string>
-    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="iniciar_sesion">INICIAR SESION</string>
     <string name="recupera_tu_contrase_a">Recupera tu contraseña</string>
     <string name="ingresa_con_google">Ingresa con google</string>
     <string name="no_tienes_cuenta">No tienes cuenta?</string>
@@ -49,6 +50,7 @@
     <string name="total">TOTAL:$$$$</string>
     <string name="vigila_tu_pedido">Vigila tu pedido</string>
     <string name="confirmacion_de_datos">Confirmacion de datos</string>
+    <string name="nombre_conf">NOMBRE:</string>
     <string name="apellido_conf">APELLIDO:</string>
     <string name="correo_conf">CORREO:</string>
     <string name="telefono_conf">TELEFONO:</string>
@@ -87,4 +89,7 @@
     <string name="ir_atras">ir atras</string>
     <string name="editar_usuarios">EDITAR USUARIOS</string>
     <string name="eliminar_usuarios">ELIMINAR USUARIOS</string>
+    <string name="no_hay_pedidos_aun">no hay pedidos aun</string>
+
+    <string name="producto_anadido_carrito">%s añadido al carrito!</string>
 </resources>

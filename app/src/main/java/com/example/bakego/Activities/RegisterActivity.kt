@@ -87,12 +87,13 @@ class RegisterActivity : AppCompatActivity() {
 
         val editor = sharedPrefs.edit()
 
+        // Guardado de datos con el correo como prefijo
         editor.putString(correo, contrasena)
         editor.putString("${correo}_nombre", nombre)
         editor.putString("${correo}_apellido", apellido)
         editor.putString("${correo}_telefono", telefono)
         editor.putString("${correo}_direccion", direccion)
-        editor.putString("last_registered_email", correo)
+        editor.putString("last_registered_email", correo) // No es esencial, pero lo mantenemos
 
         editor.apply()
 

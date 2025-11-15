@@ -5,75 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    android:fillViewport="true"> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="16dp">
+    android:fillViewport="true">
 
-<<<<<<< HEAD
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="293dp"
-        android:layout_height="234dp"
-        android:layout_marginTop="60dp"
-        app:srcCompat="@drawable/logo"
-        android:contentDescription="Logo de la Aplicación" />
-
-=======
->>>>>>> b50f39e3547415d6323486fc6f2b889c567a2a0b
-    <TextView
-        android:id="@+id/texto_Inicio"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btn_com_ini"
-        android:layout_width="271dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@color/amarillo"
-        android:fontFamily="@font/kadwa"
-        android:text="@string/comenzar"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="293dp"
+            android:layout_height="234dp"
+            android:layout_marginTop="60dp"
+            app:srcCompat="@drawable/logo"
+            android:contentDescription="Logo de la Aplicación" />
 
-    <TextView
-        android:id="@+id/link_regis_ini"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/registrate"
-        android:textColor="@color/amarillo"
-<<<<<<< HEAD
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/texto_Inicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/kadwa"
+            android:text="@string/en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_com_ini"
+            android:layout_width="271dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/amarillo"
+            android:fontFamily="@font/kadwa"
+            android:text="@string/comenzar"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/link_regis_ini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/registrate"
+            android:textColor="@color/amarillo"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 </ScrollView>
-=======
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_com_ini"
-        app:layout_constraintVertical_bias="0.271" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="281dp"
-        android:layout_height="174dp"
-        app:layout_constraintBottom_toTopOf="@+id/texto_Inicio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407"
-        app:srcCompat="@drawable/logo" />
-</androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> b50f39e3547415d6323486fc6f2b889c567a2a0b

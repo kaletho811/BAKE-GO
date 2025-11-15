@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import android.widget.ImageView // Importación necesaria
 import com.example.bakego.R
 
 class EditPerfilFragment : Fragment() {
@@ -17,6 +18,7 @@ class EditPerfilFragment : Fragment() {
     private lateinit var sharedPrefs: SharedPreferences
     private var currentUserEmail: String? = null
 
+    // Declaración de campos
     private lateinit var campNomEditPerf: EditText
     private lateinit var campApellidoEditPerf: EditText
     private lateinit var campCorrEditPerf: EditText
@@ -24,6 +26,7 @@ class EditPerfilFragment : Fragment() {
     private lateinit var campDireccionEditPerf: EditText
     private lateinit var campContrEditPerf: EditText
     private lateinit var btnGuardarEdit: Button
+    private lateinit var backButton: ImageView // <-- Añadido
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +37,14 @@ class EditPerfilFragment : Fragment() {
         sharedPrefs = requireActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         currentUserEmail = sharedPrefs.getString("CURRENT_USER_EMAIL", null)
 
+        // Comprobación temprana del usuario
+        if (currentUserEmail.isNullOrEmpty()) {
+            Toast.makeText(context, "Error: Sesión no válida para editar el perfil.", Toast.LENGTH_LONG).show()
+            parentFragmentManager.popBackStack()
+            return view
+        }
+
+        // Enlace de vistas
         campNomEditPerf = view.findViewById(R.id.camp_nom_edit_perf)
         campApellidoEditPerf = view.findViewById(R.id.camp_apellido_edit_perf)
         campCorrEditPerf = view.findViewById(R.id.camp_corr_edit_perf)
@@ -41,6 +52,7 @@ class EditPerfilFragment : Fragment() {
         campDireccionEditPerf = view.findViewById(R.id.camp_direccion_edit_perf)
         campContrEditPerf = view.findViewById(R.id.camp_contr_edit_perf)
         btnGuardarEdit = view.findViewById(R.id.btn_guardar_edit)
+        backButton = view.findViewById(R.id.ic_back_edit) // <-- Enlazar flecha de retroceso
 
         cargarDatosExistentes()
 
@@ -48,12 +60,17 @@ class EditPerfilFragment : Fragment() {
             guardarCambios()
         }
 
+        // --- LÓGICA DE FLECHA ATRÁS AÑADIDA ---
+        backButton.setOnClickListener {
+            // Esto quita el EditPerfilFragment de la pila y muestra el PerfilFragment.
+            parentFragmentManager.popBackStack()
+        }
+        // --------------------------------------
+
         return view
     }
 
     private fun cargarDatosExistentes() {
-        if (currentUserEmail == null) return
-
         val nombre = sharedPrefs.getString("${currentUserEmail}_nombre", "")
         val apellido = sharedPrefs.getString("${currentUserEmail}_apellido", "")
         val telefono = sharedPrefs.getString("${currentUserEmail}_telefono", "")
@@ -61,8 +78,10 @@ class EditPerfilFragment : Fragment() {
 
         campNomEditPerf.setText(nombre)
         campApellidoEditPerf.setText(apellido)
+
         campCorrEditPerf.setText(currentUserEmail)
         campCorrEditPerf.isEnabled = false
+
         campTelEditPerf.setText(telefono)
         campDireccionEditPerf.setText(direccion)
 
@@ -70,8 +89,9 @@ class EditPerfilFragment : Fragment() {
     }
 
     private fun guardarCambios() {
-        if (currentUserEmail == null) {
-            Toast.makeText(context, "Error: No hay usuario para guardar.", Toast.LENGTH_LONG).show()
+        if (currentUserEmail.isNullOrEmpty()) {
+            Toast.makeText(context, "Error interno. Intenta iniciar sesión de nuevo.", Toast.LENGTH_LONG).show()
+            parentFragmentManager.popBackStack()
             return
         }
 
@@ -82,7 +102,7 @@ class EditPerfilFragment : Fragment() {
         val nuevaContrasena = campContrEditPerf.text.toString().trim()
 
         if (nuevoNombre.isEmpty() || nuevoApellido.isEmpty() || nuevoTelefono.isEmpty() || nuevaDireccion.isEmpty()) {
-            Toast.makeText(context, "Todos los campos (excepto contraseña) son obligatorios.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "El Nombre, Apellido, Teléfono y Dirección son obligatorios.", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -103,7 +123,8 @@ class EditPerfilFragment : Fragment() {
 
         editor.apply()
 
-        Toast.makeText(context, "Perfil actualizado exitosamente.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "✅ Perfil actualizado exitosamente.", Toast.LENGTH_SHORT).show()
+
         parentFragmentManager.popBackStack()
     }
 }

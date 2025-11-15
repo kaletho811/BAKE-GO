@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">BAKE&amp;GO</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="en_bake_go_encuentras_postres_caseros_listos_para_ti_haz_clic_en_comenzar_y_date_un_gusto">En Bake-Go encuentras postres caseros listos para ti. Haz clic en comenzar y date un gusto.</string>
     <string name="comenzar">Comenzar</string>
@@ -90,4 +89,7 @@
     <string name="ir_atras">ir atras</string>
     <string name="editar_usuarios">EDITAR USUARIOS</string>
     <string name="eliminar_usuarios">ELIMINAR USUARIOS</string>
+    <string name="no_hay_pedidos_aun">no hay pedidos aun</string>
+
+    <string name="producto_anadido_carrito">%s añadido al carrito!</string>
 </resources>

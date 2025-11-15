@@ -14,25 +14,41 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:paddingTop="24dp"
         android:paddingBottom="24dp">
 
-        <TextView
-            android:id="@+id/titulo_edit_perf"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/kavoon"
-            android:text="@string/edicion_de_perfil"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="40sp" />
+            android:paddingTop="24dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="8dp">
 
+            <ImageView
+                android:id="@+id/ic_back_edit"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical|start"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_flecha_atras"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/titulo_edit_perf"
+                android:layout_width="347dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kavoon"
+                android:text="@string/edicion_de_perfil"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+        </FrameLayout>
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="32dp">
-
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="131dp"
@@ -59,7 +75,7 @@
             android:ems="10"
             android:fontFamily="@font/kadwa"
             android:inputType="textPersonName"
-            android:text="@string/nombre"
+            android:hint="@string/nombre"
             android:textAlignment="center"
             android:textColor="@color/black" />
 
@@ -76,7 +92,7 @@
             android:textColor="@color/black"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/apellidos" />
+            android:hint="@string/apellidos" />
 
         <EditText
             android:id="@+id/camp_corr_edit_perf"
@@ -91,8 +107,7 @@
             android:textColor="@color/black"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:hint="@string/correo"
-            android:text="@string/ingresa_tu_correo" />
+            android:hint="@string/correo" />
 
         <EditText
             android:id="@+id/camp_tel_edit_perf"
@@ -107,8 +122,7 @@
             android:textColor="@color/black"
             android:ems="10"
             android:inputType="number"
-            android:hint="@string/telefono"
-            android:text="@string/telefono" />
+            android:hint="@string/telefono" />
 
         <EditText
             android:id="@+id/camp_direccion_edit_perf"
@@ -123,7 +137,7 @@
             android:textColor="@color/black"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/direccion" />
+            android:hint="@string/direccion" />
 
         <EditText
             android:id="@+id/camp_contr_edit_perf"
@@ -138,8 +152,7 @@
             android:textColor="@color/black"
             android:ems="10"
             android:inputType="textPassword"
-            android:hint="@string/cambiar_contrase_a"
-            android:text="@string/cambiar_contrase_a" />
+            android:hint="@string/cambiar_contrase_a" />
 
         <Button
             android:id="@+id/btn_guardar_edit"

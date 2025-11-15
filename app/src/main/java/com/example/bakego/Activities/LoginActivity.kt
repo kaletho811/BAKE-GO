@@ -58,6 +58,12 @@ class LoginActivity : AppCompatActivity() {
         } else if (storedPassword == contrasena) {
             Toast.makeText(this, "¡Bienvenido! Sesión iniciada.", Toast.LENGTH_SHORT).show()
 
+            // *** CÓDIGO AÑADIDO: GUARDAR USUARIO ACTUAL ***
+            val editor = sharedPrefs.edit()
+            editor.putString("CURRENT_USER_EMAIL", correo)
+            editor.apply()
+            // **********************************************
+
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
