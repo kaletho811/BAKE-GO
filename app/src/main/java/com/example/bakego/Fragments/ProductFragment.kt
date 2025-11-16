@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.example.bakego.R
 import com.example.bakego.Data.MockData
 import com.example.bakego.Data.Product
+import com.example.bakego.Activities.MainActivity
 
 class ProductFragment : Fragment() {
 
@@ -34,19 +35,21 @@ class ProductFragment : Fragment() {
         tvProductTitle = view.findViewById(R.id.tv_product_title)
         tvProductPrice = view.findViewById(R.id.tv_product_price)
         tvProductDescription = view.findViewById(R.id.tv_product_description)
-        // Asegúrate de que este ID (R.id.img_product) exista en tu fragment_product.xml
         imgProduct = view.findViewById(R.id.img_product)
 
         // 1. Configurar la flecha de retroceso
         backButton.setOnClickListener {
+            // Esto realiza la acción de "pop" de la pila de fragmentos,
+            // regresando automáticamente a MainActivity (que estaba debajo).
             parentFragmentManager.popBackStack()
         }
 
-        // 2. Configurar el botón de añadir al carrito - CORRECCIÓN DE STRING LITERAL
+        // 2. Configurar el botón de añadir al carrito
         btnAddCar.setOnClickListener {
             val productName = tvProductTitle.text.toString().replace(":", "").trim()
 
-            // Usamos getString() para obtener la plantilla de string del XML
+            // Asumiendo que tienes un recurso de string para el mensaje de Toast:
+            // Ejemplo: <string name="producto_anadido_carrito">¡%1$s añadido al carrito!</string>
             val toastMessage = getString(R.string.producto_anadido_carrito, productName)
 
             Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show()
@@ -58,28 +61,31 @@ class ProductFragment : Fragment() {
         return view
     }
 
+    /**
+     * Carga los detalles del producto usando el 'product_id' pasado en los argumentos.
+     */
     private fun cargarDetallesProducto(args: Bundle?) {
+        // Obtiene el ID del producto que se pasó desde MainActivity
         val productId = args?.getString("product_id")
 
         if (productId.isNullOrEmpty()) {
             tvProductTitle.text = "ERROR:"
-            // Usa recursos de strings para mensajes de error si es posible
-            tvProductDescription.text = "Producto no encontrado."
+            tvProductDescription.text = "ID de producto no recibido."
             btnAddCar.isEnabled = false
             return
         }
 
+        // Busca el producto en la fuente de datos simulada
         val product: Product? = MockData.getProductById(productId)
 
         if (product == null) {
             tvProductTitle.text = "ERROR:"
-            // Usa recursos de strings para mensajes de error si es posible
-            tvProductDescription.text = "Producto con ID '$productId' no existe."
+            tvProductDescription.text = "Producto con ID '$productId' no existe en la base de datos."
             btnAddCar.isEnabled = false
             return
         }
 
-        // Actualizar la interfaz de usuario con los datos del producto
+        // Actualiza la interfaz de usuario con los datos del producto
         tvProductTitle.text = product.name + ":"
         tvProductPrice.text = product.price
         tvProductDescription.text = product.description

@@ -1,5 +1,3 @@
-// Archivo: com.example.bakego.Data.Product.kt
-
 package com.example.bakego.Data
 import com.example.bakego.R
 data class Product(

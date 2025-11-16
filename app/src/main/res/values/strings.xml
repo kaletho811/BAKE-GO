@@ -92,4 +92,5 @@
     <string name="no_hay_pedidos_aun">no hay pedidos aun</string>
 
     <string name="producto_anadido_carrito">%s añadido al carrito!</string>
+    <string name="redireccion_al_perfil">redireccion al perfil</string>
 </resources>
