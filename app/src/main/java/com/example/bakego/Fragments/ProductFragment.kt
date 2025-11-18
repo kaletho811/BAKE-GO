@@ -13,6 +13,8 @@ import com.example.bakego.R
 import com.example.bakego.Data.MockData
 import com.example.bakego.Data.Product
 import com.example.bakego.Activities.MainActivity
+import com.example.bakego.Data.ProductoCarrito
+import com.example.bakego.Data.CarritoManager // 🌟 Importación del CarritoManager
 
 class ProductFragment : Fragment() {
 
@@ -22,6 +24,8 @@ class ProductFragment : Fragment() {
     private lateinit var tvProductPrice: TextView
     private lateinit var tvProductDescription: TextView
     private lateinit var imgProduct: ImageView
+
+    private var _currentProduct: Product? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,35 +41,69 @@ class ProductFragment : Fragment() {
         tvProductDescription = view.findViewById(R.id.tv_product_description)
         imgProduct = view.findViewById(R.id.img_product)
 
-        // 1. Configurar la flecha de retroceso
+        // Configurar la flecha de retroceso
         backButton.setOnClickListener {
-            // Esto realiza la acción de "pop" de la pila de fragmentos,
-            // regresando automáticamente a MainActivity (que estaba debajo).
             parentFragmentManager.popBackStack()
         }
 
-        // 2. Configurar el botón de añadir al carrito
+        // LÓGICA DE AÑADIR AL CARRITO
         btnAddCar.setOnClickListener {
-            val productName = tvProductTitle.text.toString().replace(":", "").trim()
+            _currentProduct?.let { product ->
+                // Lógica para asignar precio (mantenida)
+                val priceDouble = when (product.id) {
+                    "limon_cup" -> 3.00
+                    "fresa_cake" -> 5.50
+                    "MOSAICO_cake" -> 4.25
+                    else -> 1.00
+                }
 
-            // Asumiendo que tienes un recurso de string para el mensaje de Toast:
-            // Ejemplo: <string name="producto_anadido_carrito">¡%1$s añadido al carrito!</string>
-            val toastMessage = getString(R.string.producto_anadido_carrito, productName)
+                // Aquí se crea el ProductoCarrito
+                val productoParaCarrito = ProductoCarrito(
+                    id = product.id,
+                    nombre = product.name,
+                    precioUnitario = priceDouble,
+                    cantidad = 1
+                )
 
-            Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show()
+                // 🌟🌟🌟 CAMBIO CLAVE: Llamar al CarritoManager
+                CarritoManager.agregarProducto(productoParaCarrito)
+
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.producto_anadido_carrito, product.name),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            } ?: run {
+                Toast.makeText(context, "Error: Producto no cargado.", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        // 3. Cargar datos del producto de forma dinámica
         cargarDetallesProducto(arguments)
 
         return view
     }
 
+    // --- SOLUCIÓN ALTERNATIVA FORZADA ---
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        if (activity is MainActivity) {
+            val mainActivity = activity as MainActivity
+            if (mainActivity.supportFragmentManager.backStackEntryCount <= 1) {
+                // Asumiendo que estas propiedades están definidas en MainActivity
+                mainActivity.contentMainLayout.visibility = View.VISIBLE
+                mainActivity.fragmentContainer.visibility = View.GONE
+            }
+        }
+    }
+    // ------------------------------------
+
+
     /**
      * Carga los detalles del producto usando el 'product_id' pasado en los argumentos.
      */
     private fun cargarDetallesProducto(args: Bundle?) {
-        // Obtiene el ID del producto que se pasó desde MainActivity
         val productId = args?.getString("product_id")
 
         if (productId.isNullOrEmpty()) {
@@ -75,7 +113,6 @@ class ProductFragment : Fragment() {
             return
         }
 
-        // Busca el producto en la fuente de datos simulada
         val product: Product? = MockData.getProductById(productId)
 
         if (product == null) {
@@ -84,6 +121,9 @@ class ProductFragment : Fragment() {
             btnAddCar.isEnabled = false
             return
         }
+
+        // GUARDAR EL PRODUCTO CARGADO
+        _currentProduct = product
 
         // Actualiza la interfaz de usuario con los datos del producto
         tvProductTitle.text = product.name + ":"

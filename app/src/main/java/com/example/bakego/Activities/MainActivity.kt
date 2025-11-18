@@ -6,16 +6,21 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView // ¡Importar CardView!
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.bakego.Fragments.PerfilFragment
 import com.example.bakego.Fragments.ProductFragment
+import com.example.bakego.Fragments.CarritoFragment
 import com.example.bakego.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var icPerfilMain: ImageView
-    private lateinit var fragmentContainer: FrameLayout
-    private lateinit var contentMainLayout: ConstraintLayout
+    private lateinit var icCarritoMain: ImageView
+
+    // FIX: Cambiamos 'private' a 'internal' para permitir el acceso desde fragmentos
+    // en otros paquetes dentro del mismo módulo de la aplicación.
+    internal lateinit var fragmentContainer: FrameLayout
+    internal lateinit var contentMainLayout: ConstraintLayout
 
     // Declaraciones de las CardView
     private lateinit var cardLimon: CardView
@@ -27,57 +32,63 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         icPerfilMain = findViewById(R.id.ic_perfil_main)
+        icCarritoMain = findViewById(R.id.imageView11)
         fragmentContainer = findViewById(R.id.fragment_container)
         contentMainLayout = findViewById(R.id.content_main_layout)
 
-        // 1. Enlazar las CardView
+        // Enlazar las CardView
         cardLimon = findViewById(R.id.card_limon)
         cardFresa = findViewById(R.id.card_fresa)
         cardGelatinaMosaico = findViewById(R.id.card_gelatina_mosaico)
 
-        // Manejo del click del perfil (existente)
+        // --- SOLUCIÓN AL PROBLEMA DE PANTALLA BLANCA (MÉTODO ROBUSTO) ---
+        // Listener que se dispara CADA VEZ que cambia la pila de fragmentos.
+        // Asegura que volvemos a la vista principal cuando la pila está vacía.
+        supportFragmentManager.addOnBackStackChangedListener {
+            // Si la pila está vacía (hemos regresado a la raíz), mostramos el contenido principal.
+            if (supportFragmentManager.backStackEntryCount == 0) {
+                contentMainLayout.visibility = View.VISIBLE
+                fragmentContainer.visibility = View.GONE
+            }
+        }
+        // -----------------------------------------------------------------
+
+        // Manejo del click del perfil
         icPerfilMain.setOnClickListener {
             mostrarFragmentoPerfil()
         }
 
-        // 2. Asignar OnClickListener a cada CardView con su ID de MockData
-        // --- ASIGNACIÓN DE CLICKS ---
+        // Asignar OnClickListener a la ImageView del carrito
+        icCarritoMain.setOnClickListener {
+            mostrarFragmentoCarrito()
+        }
 
+        // Asignar OnClickListener a cada CardView con su ID de MockData
         cardLimon.setOnClickListener {
-            // Usar el ID que definiste en MockData
             abrirFragmentoProducto("limon_cup")
         }
 
         cardFresa.setOnClickListener {
-            // Usar el ID que definiste en MockData
             abrirFragmentoProducto("fresa_cake")
         }
 
         cardGelatinaMosaico.setOnClickListener {
-            // Usar el ID que definiste en MockData
             abrirFragmentoProducto("MOSAICO_cake")
         }
 
-        // --- FIN ASIGNACIÓN DE CLICKS ---
-
-        // Lógica de retroceso (existente)
-        val callback = object : OnBackPressedCallback(true) {
+        // Manejo del botón físico/virtual de retroceso del dispositivo.
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (supportFragmentManager.backStackEntryCount > 0) {
+                    // Si hay fragmentos, usamos el pop estándar, que activa el listener de arriba.
                     supportFragmentManager.popBackStack()
-                    icPerfilMain.postDelayed({
-                        if (supportFragmentManager.backStackEntryCount == 0) {
-                            fragmentContainer.visibility = View.GONE
-                            contentMainLayout.visibility = View.VISIBLE
-                        }
-                    }, 50)
                 } else {
+                    // Si no hay fragmentos, salimos de la actividad.
                     isEnabled = false
                     onBackPressedDispatcher.onBackPressed()
                 }
             }
-        }
-        onBackPressedDispatcher.addCallback(this, callback)
+        })
     }
 
     private fun mostrarFragmentoPerfil() {
@@ -88,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, perfilFragment)
-            .addToBackStack(null)
+            .addToBackStack("MainToPerfil") // Usamos un tag explícito
             .commit()
     }
 
@@ -104,7 +115,6 @@ class MainActivity : AppCompatActivity() {
 
         // Empaquetar el ID del producto para pasarlo al Fragment
         val bundle = Bundle().apply {
-            // La clave "product_id" es la que ProductFragment está esperando
             putString("product_id", productId)
         }
         productFragment.arguments = bundle
@@ -113,6 +123,19 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, productFragment)
             .addToBackStack("MainToProduct")
+            .commit()
+    }
+
+    // Función para mostrar el CarritoFragment
+    private fun mostrarFragmentoCarrito() {
+        contentMainLayout.visibility = View.GONE
+        fragmentContainer.visibility = View.VISIBLE
+
+        val carritoFragment = CarritoFragment()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, carritoFragment)
+            .addToBackStack("MainToCarrito") // Un tag para esta transacción
             .commit()
     }
 }

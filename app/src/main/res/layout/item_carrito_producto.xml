@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Imagen del Producto (Usaremos una simple para el diseño) -->
+        <ImageView
+            android:id="@+id/img_producto_carrito"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_carrito"
+            android:scaleType="centerCrop"
+            android:contentDescription="Imagen del producto en el carrito" />
+
+        <!-- Detalles del Producto: Nombre y Precio Unitario -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/txt_nombre_producto_carrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Postre de Limón"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_precio_unitario_carrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio unitario: $3.00"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Cantidad y Botones de Control (Remover) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:id="@+id/txt_cantidad_carrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginEnd="16dp" />
+
+            <ImageView
+                android:id="@+id/btn_remover_carrito"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_basura"
+                app:tint="@color/black"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Remover producto" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

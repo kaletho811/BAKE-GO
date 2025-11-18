@@ -74,7 +74,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/link_recpass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -85,7 +85,7 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_google"
             android:layout_width="295dp"
             android:layout_height="65dp"
             android:layout_marginTop="32dp"

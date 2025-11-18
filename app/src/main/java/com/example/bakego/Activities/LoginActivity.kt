@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bakego.R
 
+
 class LoginActivity : AppCompatActivity() {
     private val PREFS_NAME = "UserPrefs"
 
@@ -18,8 +19,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var campContrLogin: EditText
     private lateinit var btnLogin: Button
     private lateinit var linkRegis: TextView
+    private lateinit var linkRecPass: TextView // 1. Nueva variable para el link de recuperar
 
     private lateinit var sharedPrefs: SharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
         campContrLogin = findViewById(R.id.pass_ini)
         btnLogin = findViewById(R.id.button)
         linkRegis = findViewById(R.id.Link_regis_login)
+        linkRecPass = findViewById(R.id.link_recpass) // 2. Enlazar el TextView
+
 
         btnLogin.setOnClickListener {
             iniciarSesionLocal()
@@ -38,6 +43,12 @@ class LoginActivity : AppCompatActivity() {
 
         linkRegis.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 3. Añadir el Listener para la recuperación de contraseña
+        linkRecPass.setOnClickListener {
+            val intent = Intent(this, RecPassActivity::class.java)
             startActivity(intent)
         }
     }
@@ -72,4 +83,5 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Contraseña incorrecta.", Toast.LENGTH_SHORT).show()
         }
     }
+
 }
