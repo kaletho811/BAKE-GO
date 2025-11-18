@@ -8,7 +8,6 @@
     android:background="@color/fondo"
     tools:context=".Fragments.CarritoFragment">
 
-    <!-- Flecha de retroceso AÑADIDA -->
     <ImageView
         android:id="@+id/ic_back_carrito"
         android:layout_width="48dp"
@@ -22,7 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/black" />
 
-    <!-- Título principal de la aplicación -->
     <TextView
         android:id="@+id/nom_app_carrito"
         android:layout_width="307dp"
@@ -37,7 +35,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Título del Fragmento: Carrito de compras -->
     <TextView
         android:id="@+id/titulo_carrito"
         android:layout_width="303dp"
@@ -53,7 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nom_app_carrito" />
 
-    <!-- Icono del carrito -->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="64dp"
@@ -66,7 +62,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="Icono de carrito" />
 
-    <!-- SCROLLVIEW Y TEXTVIEW PARA MOSTRAR LA LISTA DE PRODUCTOS (versión simple) -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -92,23 +87,20 @@
     </ScrollView>
 
 
-    <!-- Texto que muestra el Total del carrito -->
     <TextView
         android:id="@+id/texto_total_carrito"
-        android:layout_width="116dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/kadwa"
         android:text="@string/total"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btn_add_car"
-        app:layout_constraintEnd_toEndOf="@+id/btn_add_car"
-        app:layout_constraintHorizontal_bias="0.89"
-        app:layout_constraintStart_toStartOf="@+id/btn_add_car" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_car" />
 
-    <!-- Botón de Comprar -->
     <Button
         android:id="@+id/btn_add_car"
         android:layout_width="371dp"
@@ -122,7 +114,6 @@
         android:text="@string/comprar"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
-        android:textSize="20sp"
         app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

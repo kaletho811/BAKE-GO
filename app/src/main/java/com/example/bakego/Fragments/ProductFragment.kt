@@ -49,12 +49,13 @@ class ProductFragment : Fragment() {
         // LÓGICA DE AÑADIR AL CARRITO
         btnAddCar.setOnClickListener {
             _currentProduct?.let { product ->
-                // Lógica para asignar precio (mantenida)
+
+                // 🌟🌟🌟 CORRECCIÓN AQUÍ: El precio de Mosaico_cake ahora es 4250.0 (COP)
                 val priceDouble = when (product.id) {
-                    "limon_cup" -> 3.00
-                    "fresa_cake" -> 5.50
-                    "MOSAICO_cake" -> 4.25
-                    else -> 1.00
+                    "limon_cup" -> 3000.0
+                    "fresa_cake" -> 5500.0
+                    "MOSAICO_cake" -> 4250.0 // Corregido de 4200.0 a 4250.0
+                    else -> 1000.00
                 }
 
                 // Aquí se crea el ProductoCarrito
@@ -65,7 +66,7 @@ class ProductFragment : Fragment() {
                     cantidad = 1
                 )
 
-                // 🌟🌟🌟 CAMBIO CLAVE: Llamar al CarritoManager
+                // Llamar al CarritoManager
                 CarritoManager.agregarProducto(productoParaCarrito)
 
                 Toast.makeText(

@@ -93,4 +93,7 @@
 
     <string name="producto_anadido_carrito">%s añadido al carrito!</string>
     <string name="redireccion_al_perfil">redireccion al perfil</string>
+    <string name="_3000_00">3000.00</string>
+    <string name="_5500_00">5500.00</string>
+    <string name="_4250_00">4250.00</string>
 </resources>

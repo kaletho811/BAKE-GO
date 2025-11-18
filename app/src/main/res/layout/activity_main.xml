@@ -119,7 +119,7 @@
                         android:id="@+id/txt_precio_limon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/c_u_3"
+                        android:text="@string/_3000_00"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -171,7 +171,7 @@
                         android:id="@+id/txt_precio_fresa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$$$$$$ c/u"
+                        android:text="@string/_5500_00"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -227,7 +227,7 @@
                         android:id="@+id/txt_precio_gelatina"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/c_u"
+                        android:text="@string/_4250_00"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
                 </LinearLayout>
