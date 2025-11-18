@@ -33,7 +33,6 @@ class ProductFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_product, container, false)
 
-        // Enlace de vistas
         backButton = view.findViewById(R.id.ic_back_product)
         btnAddCar = view.findViewById(R.id.btn_add_car)
         tvProductTitle = view.findViewById(R.id.tv_product_title)
@@ -41,24 +40,20 @@ class ProductFragment : Fragment() {
         tvProductDescription = view.findViewById(R.id.tv_product_description)
         imgProduct = view.findViewById(R.id.img_product)
 
-        // Configurar la flecha de retroceso
         backButton.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
-        // LÓGICA DE AÑADIR AL CARRITO
         btnAddCar.setOnClickListener {
             _currentProduct?.let { product ->
 
-                // 🌟🌟🌟 CORRECCIÓN AQUÍ: El precio de Mosaico_cake ahora es 4250.0 (COP)
                 val priceDouble = when (product.id) {
                     "limon_cup" -> 3000.0
                     "fresa_cake" -> 5500.0
-                    "MOSAICO_cake" -> 4250.0 // Corregido de 4200.0 a 4250.0
+                    "MOSAICO_cake" -> 4250.0
                     else -> 1000.00
                 }
 
-                // Aquí se crea el ProductoCarrito
                 val productoParaCarrito = ProductoCarrito(
                     id = product.id,
                     nombre = product.name,
@@ -66,7 +61,6 @@ class ProductFragment : Fragment() {
                     cantidad = 1
                 )
 
-                // Llamar al CarritoManager
                 CarritoManager.agregarProducto(productoParaCarrito)
 
                 Toast.makeText(
@@ -85,7 +79,6 @@ class ProductFragment : Fragment() {
         return view
     }
 
-    // --- SOLUCIÓN ALTERNATIVA FORZADA ---
     override fun onDestroyView() {
         super.onDestroyView()
 
@@ -98,12 +91,7 @@ class ProductFragment : Fragment() {
             }
         }
     }
-    // ------------------------------------
 
-
-    /**
-     * Carga los detalles del producto usando el 'product_id' pasado en los argumentos.
-     */
     private fun cargarDetallesProducto(args: Bundle?) {
         val productId = args?.getString("product_id")
 
@@ -123,10 +111,8 @@ class ProductFragment : Fragment() {
             return
         }
 
-        // GUARDAR EL PRODUCTO CARGADO
         _currentProduct = product
 
-        // Actualiza la interfaz de usuario con los datos del producto
         tvProductTitle.text = product.name + ":"
         tvProductPrice.text = product.price
         tvProductDescription.text = product.description

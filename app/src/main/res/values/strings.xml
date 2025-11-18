@@ -96,4 +96,26 @@
     <string name="_3000_00">3000.00</string>
     <string name="_5500_00">5500.00</string>
     <string name="_4250_00">4250.00</string>
+    <string name="editar_producto_xd">EDITAR PRODUCTO</string>
+    <string name="eliminar_usuarios_XD">ELIMINAR USUARIOS</string>
+    <string name="ver_productoXD">VER PRODUCTO</string>
+    <string name="eliminar_productoxd">ELIMINAR PRODUCTO</string>
+    <string name="a_adir_productoXD">AÑADIR PRODUCTO</string>
+    <string name="visible">Visible</string>
+    <string name="precio">precio</string>
+    <string name="descripcion">descripcion</string>
+    <string name="cantidad">cantidad</string>
+    <string name="producto">producto</string>
+    <string name="imagen_del_producto">imagen del producto</string>
+    <string name="id">id</string>
+    <string name="nombre_producto_id">nombre producto id</string>
+    <string name="producto_x">Producto #X</string>
+    <string name="producto_xdddd">Producto #</string>
+    <string name="y">Y</string>
+    <string name="nombre_usuario_id">nombre usuario id</string>
+    <string name="usuario">Usuario #</string>
+    <string-array name="opciones_visible">
+        <item>Visible</item>
+        <item>Oculto</item>
+    </string-array>
 </resources>

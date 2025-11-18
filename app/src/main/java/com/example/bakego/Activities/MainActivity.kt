@@ -19,12 +19,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var icPerfilMain: ImageView
     private lateinit var icCarritoMain: ImageView
 
-    // FIX: Cambiamos 'private' a 'internal' para permitir el acceso desde fragmentos
-    // en otros paquetes dentro del mismo módulo de la aplicación.
     internal lateinit var fragmentContainer: FrameLayout
     internal lateinit var contentMainLayout: ConstraintLayout
 
-    // Declaraciones de las CardView
     private lateinit var cardLimon: CardView
     private lateinit var cardFresa: CardView
     private lateinit var cardGelatinaMosaico: CardView
@@ -33,32 +30,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // ❗ INICIALIZACIÓN DEL PEDIDOS MANAGER ❗
-        // Esto asegura que SharedPreferences esté listo para guardar y leer pedidos.
         PedidosManager.initialize(applicationContext)
-        // ------------------------------------
 
         icPerfilMain = findViewById(R.id.ic_perfil_main)
         icCarritoMain = findViewById(R.id.imageView11)
         fragmentContainer = findViewById(R.id.fragment_container)
         contentMainLayout = findViewById(R.id.content_main_layout)
 
-        // Enlazar las CardView
         cardLimon = findViewById(R.id.card_limon)
         cardFresa = findViewById(R.id.card_fresa)
         cardGelatinaMosaico = findViewById(R.id.card_gelatina_mosaico)
 
-        // --- SOLUCIÓN AL PROBLEMA DE PANTALLA BLANCA (MÉTODO ROBUSTO) ---
-        // Listener que se dispara CADA VEZ que cambia la pila de fragmentos.
-        // Asegura que volvemos a la vista principal cuando la pila está vacía.
         supportFragmentManager.addOnBackStackChangedListener {
-            // Si la pila está vacía (hemos regresado a la raíz), mostramos el contenido principal.
             if (supportFragmentManager.backStackEntryCount == 0) {
                 contentMainLayout.visibility = View.VISIBLE
                 fragmentContainer.visibility = View.GONE
             }
         }
-        // -----------------------------------------------------------------
 
         // Manejo del click del perfil
         icPerfilMain.setOnClickListener {

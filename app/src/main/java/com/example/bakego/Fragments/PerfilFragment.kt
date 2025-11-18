@@ -21,7 +21,7 @@ class PerfilFragment : Fragment() {
     private lateinit var direPerf: TextView
     private lateinit var btnEditarPerfil: Button
     private lateinit var btnPedidos: Button
-    private lateinit var backButton: ImageView // <-- Añadido
+    private lateinit var backButton: ImageView
     private lateinit var sharedPrefs: SharedPreferences
 
     private var currentUserEmail: String? = null
@@ -35,7 +35,6 @@ class PerfilFragment : Fragment() {
         sharedPrefs = requireActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         currentUserEmail = sharedPrefs.getString("CURRENT_USER_EMAIL", null)
 
-        // Enlazar Vistas
         nomPerf = view.findViewById(R.id.nom_perf)
         apePerf = view.findViewById(R.id.ape_perf)
         corrPerf = view.findViewById(R.id.corr_perf)
@@ -43,11 +42,10 @@ class PerfilFragment : Fragment() {
         direPerf = view.findViewById(R.id.dire_perf)
         btnEditarPerfil = view.findViewById(R.id.btn_editar_perfil)
         btnPedidos = view.findViewById(R.id.btn_pedidos_perf)
-        backButton = view.findViewById(R.id.ic_back_perfil) // <-- Enlazar flecha de retroceso
+        backButton = view.findViewById(R.id.ic_back_perfil)
 
         cargarDatosUsuario()
 
-        // Lógica de botones
         btnEditarPerfil.setOnClickListener {
             irAEditarPerfil()
         }
@@ -56,10 +54,7 @@ class PerfilFragment : Fragment() {
             irAPedidos()
         }
 
-        // --- LÓGICA DE FLECHA ATRÁS AÑADIDA ---
         backButton.setOnClickListener {
-            // Esto simula la pulsación del botón de retroceso del sistema,
-            // lo que debería cerrar el fragmento y volver a la vista principal.
             requireActivity().onBackPressed()
         }
         // --------------------------------------

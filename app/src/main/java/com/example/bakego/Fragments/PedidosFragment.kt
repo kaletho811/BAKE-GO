@@ -21,7 +21,7 @@ class PedidosFragment : Fragment() {
     private lateinit var pedidosContainer: LinearLayout
     private lateinit var scrollPedidosList: ScrollView
     private lateinit var tvNoPedidos: TextView
-    private lateinit var backButton: ImageView // Declaración de backButton (asumiendo que está en tu layout)
+    private lateinit var backButton: ImageView
 
 
     override fun onCreateView(
@@ -40,8 +40,6 @@ class PedidosFragment : Fragment() {
         backButton.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
-
-        // 2. Cargar los datos al iniciar el fragmento
         cargarListaPedidos()
 
         return view
@@ -49,13 +47,9 @@ class PedidosFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Recargamos los pedidos en caso de que volvamos a este fragmento
         cargarListaPedidos()
     }
 
-    /**
-     * Lee los pedidos de PedidosManager y los muestra en la lista.
-     */
     private fun cargarListaPedidos() {
         val pedidos = PedidosManager.obtenerPedidos()
 
@@ -87,7 +81,6 @@ class PedidosFragment : Fragment() {
                     setPadding(32, 32, 32, 32)
                 }
 
-                // 1. TextView para el número de pedido (CORREGIDO)
                 val tvNumero = TextView(requireContext()).apply {
                     layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -95,26 +88,23 @@ class PedidosFragment : Fragment() {
                     )
                     text = "Pedido #${pedido.numero}"
 
-                    // SOLUCIÓN SENCILLA: Usar estilo de Android base
                     setTextAppearance(android.R.style.TextAppearance_Medium)
 
                     setTextColor(ContextCompat.getColor(context, R.color.black))
                 }
                 cardLayout.addView(tvNumero)
 
-                // 2. TextView para los postres
                 val tvPostres = TextView(requireContext()).apply {
                     layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
                     )
                     text = "Postres: ${pedido.postres}"
-                    setTextAppearance(android.R.style.TextAppearance_Small) // Estilo un poco más pequeño
+                    setTextAppearance(android.R.style.TextAppearance_Small)
                     setTextColor(ContextCompat.getColor(context, R.color.black))
                 }
                 cardLayout.addView(tvPostres)
 
-                // 3. TextView para la dirección
                 val tvDireccion = TextView(requireContext()).apply {
                     layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,

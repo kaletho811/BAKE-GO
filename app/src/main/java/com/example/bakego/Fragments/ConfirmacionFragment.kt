@@ -17,32 +17,21 @@ import com.example.bakego.R
 import com.example.bakego.Data.CarritoManager
 import com.example.bakego.Data.PedidosManager
 
-// Asegúrate de que la clase EditPerfilFragment exista
-// class EditPerfilFragment : Fragment() { ... }
-// Asegúrate de que la clase PedidosFragment exista
-// class PedidosFragment : Fragment() { ... }
-
-
 class ConfirmacionFragment : Fragment() {
 
     private val PREFS_NAME = "UserPrefs"
-    // Componentes de datos
     private lateinit var nomConf: TextView
     private lateinit var apeConf: TextView
     private lateinit var corrConf: TextView
     private lateinit var telConf: TextView
     private lateinit var direConf: TextView
     private lateinit var btnEditConf: ImageButton
-    // Componentes de pago y acción
     private lateinit var rgMediosPago: RadioGroup
     private lateinit var btnConfDatos: Button
-
     private lateinit var backButton: ImageView
-
     private lateinit var sharedPrefs: SharedPreferences
     private var currentUserEmail: String? = null
 
-    // El ID de tu contenedor de Fragments en MainActivity
     private val FRAGMENT_CONTAINER_ID = R.id.fragment_container
 
     override fun onCreateView(
@@ -54,7 +43,6 @@ class ConfirmacionFragment : Fragment() {
         sharedPrefs = requireActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         currentUserEmail = sharedPrefs.getString("CURRENT_USER_EMAIL", null)
 
-        // 1. Enlazar las TextViews de datos
         nomConf = view.findViewById(R.id.nom_conf)
         apeConf = view.findViewById(R.id.ape_conf)
         corrConf = view.findViewById(R.id.corr_conf)
@@ -64,14 +52,10 @@ class ConfirmacionFragment : Fragment() {
 
         backButton = view.findViewById(R.id.ic_back_confirmacion)
 
-        // 2. Enlazar los componentes de acción (Pagos y Confirmar)
         rgMediosPago = view.findViewById(R.id.rg_medios_pago)
-        btnConfDatos = view.findViewById(R.id.btn_conf_datos) // ID del botón "Confirmar"
+        btnConfDatos = view.findViewById(R.id.btn_conf_datos)
 
-        // 3. Cargar los datos del usuario
         cargarDatosConfirmacion()
-
-        // 4. Configurar listeners
 
         backButton.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -88,9 +72,6 @@ class ConfirmacionFragment : Fragment() {
         return view
     }
 
-    /**
-     * Función que lee los datos del usuario de SharedPreferences y los muestra.
-     */
     private fun cargarDatosConfirmacion() {
         if (currentUserEmail.isNullOrEmpty()) {
             nomConf.text = getString(R.string.nombre_conf) + " (Error)"
@@ -106,7 +87,6 @@ class ConfirmacionFragment : Fragment() {
         val telefono = sharedPrefs.getString("${currentUserEmail}_telefono", "")
         val direccion = sharedPrefs.getString("${currentUserEmail}_direccion", "")
 
-        // Muestra los datos (asumiendo que tus strings tienen formato como "Etiqueta: ")
         nomConf.text = getString(R.string.nombre_conf) + " " + nombre
         apeConf.text = getString(R.string.apellido_conf) + " " + apellido
         corrConf.text = getString(R.string.correo_conf) + " " + currentUserEmail
@@ -114,9 +94,6 @@ class ConfirmacionFragment : Fragment() {
         direConf.text = getString(R.string.direccion_conf) + " " + direccion
     }
 
-    /**
-     * Función que maneja la navegación al fragmento de edición de perfil.
-     */
     private fun navigateToEditPerfil() {
         val editPerfilFragment = EditPerfilFragment()
 
@@ -126,52 +103,34 @@ class ConfirmacionFragment : Fragment() {
             .commit()
     }
 
-    /**
-     * Función que valida, procesa la confirmación de la orden y guarda el pedido.
-     */
     private fun procesarConfirmacion() {
         val selectedId = rgMediosPago.checkedRadioButtonId
 
         if (selectedId == -1) {
-            // Se corrigieron los errores de sintaxis en el Toast
             Toast.makeText(requireContext(), "Por favor, selecciona un medio de pago.", Toast.LENGTH_LONG).show()
             return
         }
 
-        // --- 1. Obtener los datos necesarios para el pedido ---
-
         val textoDireccionCompleto = direConf.text.toString()
 
-        // Se corrigieron los errores de sintaxis en la obtención de la etiqueta y el reemplazo
         val etiquetaDireccion = getString(R.string.direccion_conf) + " "
         val direccionEnvio = textoDireccionCompleto.replace(etiquetaDireccion, "").trim()
-
-        // Obtener la lista de postres (asumiendo que CarritoManager.productos es una lista de objetos con propiedad 'nombre')
         val nombresPostres = CarritoManager.productos.joinToString { it.nombre }
 
         if (nombresPostres.isEmpty()) {
             Toast.makeText(requireContext(), "El carrito está vacío. No se puede confirmar el pedido.", Toast.LENGTH_LONG).show()
             return
         }
-
-        // --- 2. Guardar el nuevo pedido usando el Manager ---
-
         PedidosManager.guardarNuevoPedido(nombresPostres, direccionEnvio)
-
-        // --- 3. Finalizar la transacción ---
-
         Toast.makeText(requireContext(), "¡Orden Confirmada! Pedido enviado a: $direccionEnvio", Toast.LENGTH_LONG).show()
 
-        // 4. Limpiar el carrito de compras
         CarritoManager.productos.clear()
 
-        // 5. Navegar al fragmento de Pedidos
         val pedidosFragment = PedidosFragment()
 
-        // Se corrigieron los errores de sintaxis en la transacción (replace y addToBackStack)
         parentFragmentManager.beginTransaction()
             .replace(FRAGMENT_CONTAINER_ID, pedidosFragment)
-            .addToBackStack(null) // Limpia los fragmentos anteriores.
+            .addToBackStack(null)
             .commit()
         }
 }

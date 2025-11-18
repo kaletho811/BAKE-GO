@@ -16,7 +16,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private val PREFS_NAME = "UserPrefs"
 
-    // CAMPOS DE TEXTO ADICIONALES
     private lateinit var campNom: EditText
     private lateinit var campApellido: EditText
     private lateinit var campTel: EditText
@@ -36,7 +35,6 @@ class RegisterActivity : AppCompatActivity() {
 
         sharedPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
-        // 1. Enlazar todos los campos del activity_register.xml
         campNom = findViewById(R.id.camp_nom)
         campApellido = findViewById(R.id.camp_apellido)
         campCorrRegis = findViewById(R.id.camp_corr_regis)
@@ -87,13 +85,12 @@ class RegisterActivity : AppCompatActivity() {
 
         val editor = sharedPrefs.edit()
 
-        // Guardado de datos con el correo como prefijo
         editor.putString(correo, contrasena)
         editor.putString("${correo}_nombre", nombre)
         editor.putString("${correo}_apellido", apellido)
         editor.putString("${correo}_telefono", telefono)
         editor.putString("${correo}_direccion", direccion)
-        editor.putString("last_registered_email", correo) // No es esencial, pero lo mantenemos
+        editor.putString("last_registered_email", correo)
 
         editor.apply()
 

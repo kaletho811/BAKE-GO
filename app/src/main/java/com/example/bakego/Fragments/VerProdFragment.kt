@@ -1,0 +1,7 @@
+package com.example.bakego.Fragments
+
+import androidx.fragment.app.Fragment
+
+class VerProdFragment : Fragment() {
+
+}

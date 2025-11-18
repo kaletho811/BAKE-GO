@@ -17,8 +17,6 @@ class EditPerfilFragment : Fragment() {
     private val PREFS_NAME = "UserPrefs"
     private lateinit var sharedPrefs: SharedPreferences
     private var currentUserEmail: String? = null
-
-    // Declaración de campos
     private lateinit var campNomEditPerf: EditText
     private lateinit var campApellidoEditPerf: EditText
     private lateinit var campCorrEditPerf: EditText
@@ -26,7 +24,7 @@ class EditPerfilFragment : Fragment() {
     private lateinit var campDireccionEditPerf: EditText
     private lateinit var campContrEditPerf: EditText
     private lateinit var btnGuardarEdit: Button
-    private lateinit var backButton: ImageView // <-- Añadido
+    private lateinit var backButton: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +35,6 @@ class EditPerfilFragment : Fragment() {
         sharedPrefs = requireActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         currentUserEmail = sharedPrefs.getString("CURRENT_USER_EMAIL", null)
 
-        // Comprobación temprana del usuario
         if (currentUserEmail.isNullOrEmpty()) {
             Toast.makeText(context, "Error: Sesión no válida para editar el perfil.", Toast.LENGTH_LONG).show()
             parentFragmentManager.popBackStack()
@@ -52,7 +49,7 @@ class EditPerfilFragment : Fragment() {
         campDireccionEditPerf = view.findViewById(R.id.camp_direccion_edit_perf)
         campContrEditPerf = view.findViewById(R.id.camp_contr_edit_perf)
         btnGuardarEdit = view.findViewById(R.id.btn_guardar_edit)
-        backButton = view.findViewById(R.id.ic_back_edit) // <-- Enlazar flecha de retroceso
+        backButton = view.findViewById(R.id.ic_back_edit)
 
         cargarDatosExistentes()
 
@@ -60,12 +57,9 @@ class EditPerfilFragment : Fragment() {
             guardarCambios()
         }
 
-        // --- LÓGICA DE FLECHA ATRÁS AÑADIDA ---
         backButton.setOnClickListener {
-            // Esto quita el EditPerfilFragment de la pila y muestra el PerfilFragment.
             parentFragmentManager.popBackStack()
         }
-        // --------------------------------------
 
         return view
     }

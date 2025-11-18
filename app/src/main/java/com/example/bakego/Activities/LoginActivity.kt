@@ -15,11 +15,16 @@ import com.example.bakego.R
 class LoginActivity : AppCompatActivity() {
     private val PREFS_NAME = "UserPrefs"
 
+    //CONSTANTES DEL ADMINISTRADOR
+    private val ADMIN_CORREO = "admin@bakego.com"
+    private val ADMIN_CONTRASENA = "admin123"
+
+
     private lateinit var campCorrLogin: EditText
     private lateinit var campContrLogin: EditText
     private lateinit var btnLogin: Button
     private lateinit var linkRegis: TextView
-    private lateinit var linkRecPass: TextView // 1. Nueva variable para el link de recuperar
+    private lateinit var linkRecPass: TextView
 
     private lateinit var sharedPrefs: SharedPreferences
 
@@ -34,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
         campContrLogin = findViewById(R.id.pass_ini)
         btnLogin = findViewById(R.id.button)
         linkRegis = findViewById(R.id.Link_regis_login)
-        linkRecPass = findViewById(R.id.link_recpass) // 2. Enlazar el TextView
+        linkRecPass = findViewById(R.id.link_recpass)
 
 
         btnLogin.setOnClickListener {
@@ -46,7 +51,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 3. Añadir el Listener para la recuperación de contraseña
         linkRecPass.setOnClickListener {
             val intent = Intent(this, RecPassActivity::class.java)
             startActivity(intent)
@@ -62,6 +66,18 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
+        if (correo == ADMIN_CORREO && contrasena == ADMIN_CONTRASENA) {
+            Toast.makeText(this, "¡Bienvenido, Administrador!", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, GestionAppActivity::class.java)
+
+            // Usamos las flags para limpiar la pila y que no pueda volver al login
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+            return
+        }
+
         val storedPassword = sharedPrefs.getString(correo, "")
 
         if (storedPassword.isNullOrEmpty()) {
@@ -69,11 +85,9 @@ class LoginActivity : AppCompatActivity() {
         } else if (storedPassword == contrasena) {
             Toast.makeText(this, "¡Bienvenido! Sesión iniciada.", Toast.LENGTH_SHORT).show()
 
-            // *** CÓDIGO AÑADIDO: GUARDAR USUARIO ACTUAL ***
             val editor = sharedPrefs.edit()
             editor.putString("CURRENT_USER_EMAIL", correo)
             editor.apply()
-            // **********************************************
 
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

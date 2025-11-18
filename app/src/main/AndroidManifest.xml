@@ -35,6 +35,12 @@
         <activity
             android:name=".Activities.RegisterActivity"
             android:exported="false"/>
+        <activity
+            android:name=".Activities.TermCondActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".Activities.GestionAppActivity"
+            android:exported="false"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

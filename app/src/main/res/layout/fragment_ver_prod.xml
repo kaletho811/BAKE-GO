@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".Fragments.Edit_Usu_Fragment">
-
-    <ImageView
-    android:id="@+id/ic_flecha_edit_usu"
+    tools:context=".Fragments.VerProdFragment"> <ImageView
+    android:id="@+id/ic_flecha_ver_prod"
     android:layout_width="69dp"
     android:layout_height="63dp"
     android:layout_marginStart="28dp"
@@ -16,14 +14,14 @@
     android:clickable="true"
     android:contentDescription="@string/ir_atras"
     android:focusable="true"
-    app:layout_constraintEnd_toStartOf="@+id/nom_App_edit_usu"
+    app:layout_constraintEnd_toStartOf="@+id/nom_App_ver_prod"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:srcCompat="@drawable/ic_flecha_atras" />
 
     <TextView
-        android:id="@+id/nom_App_edit_usu"
+        android:id="@+id/nom_App_ver_prod"
         android:layout_width="226dp"
         android:layout_height="69dp"
         android:layout_marginStart="8dp"
@@ -39,23 +37,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titulo_edit_usu"
-        android:layout_width="250dp"
+        android:id="@+id/titulo_ver_prod"
+        android:layout_width="213dp"
         android:layout_height="39dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/kavoon"
-        android:text="@string/editar_usuarios"
+        android:text="@string/ver_productoXD"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nom_App_edit_usu" />
+        app:layout_constraintTop_toBottomOf="@+id/nom_App_ver_prod" />
 
     <EditText
-        android:id="@+id/edit_search_edit_usu"
+        android:id="@+id/edit_search_ver_prod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -64,18 +62,18 @@
         android:background="@drawable/bg_search_rounded"
         android:drawableEnd="@drawable/ic_filtro"
         android:drawablePadding="8dp"
-        android:hint="@string/nombre_usuario_id"
+        android:hint="@string/nombre_producto_id"
         android:inputType="text"
         android:padding="12dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_edit_usu"
-        android:autofillHints="username" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo_ver_prod"
+        android:autofillHints="name" />
 
     <LinearLayout
-        android:id="@+id/layout_header_edit_usu"
+        android:id="@+id/layout_header_ver_prod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -84,9 +82,9 @@
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
         android:weightSum="100"
-        app:layout_constraintEnd_toEndOf="@+id/edit_search_edit_usu"
-        app:layout_constraintStart_toStartOf="@+id/edit_search_edit_usu"
-        app:layout_constraintTop_toBottomOf="@+id/edit_search_edit_usu">
+        app:layout_constraintEnd_toEndOf="@+id/edit_search_ver_prod"
+        app:layout_constraintStart_toStartOf="@+id/edit_search_ver_prod"
+        app:layout_constraintTop_toBottomOf="@+id/edit_search_ver_prod">
 
         <TextView
             android:layout_width="0dp"
@@ -111,16 +109,16 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_usuarios_edit"
+        android:id="@+id/recycler_productos_ver"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/layout_header_edit_usu"
-        app:layout_constraintStart_toStartOf="@+id/layout_header_edit_usu"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header_edit_usu"
-        tools:listitem="@layout/item_usuario_edit" />
+        app:layout_constraintEnd_toEndOf="@+id/layout_header_ver_prod"
+        app:layout_constraintStart_toStartOf="@+id/layout_header_ver_prod"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header_ver_prod"
+        tools:listitem="@layout/item_producto_ver" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
