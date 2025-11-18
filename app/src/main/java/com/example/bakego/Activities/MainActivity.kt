@@ -12,6 +12,8 @@ import com.example.bakego.Fragments.PerfilFragment
 import com.example.bakego.Fragments.ProductFragment
 import com.example.bakego.Fragments.CarritoFragment
 import com.example.bakego.R
+import com.example.bakego.Data.PedidosManager // ❗ IMPORTACIÓN NECESARIA ❗
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var icPerfilMain: ImageView
@@ -30,6 +32,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // ❗ INICIALIZACIÓN DEL PEDIDOS MANAGER ❗
+        // Esto asegura que SharedPreferences esté listo para guardar y leer pedidos.
+        PedidosManager.initialize(applicationContext)
+        // ------------------------------------
 
         icPerfilMain = findViewById(R.id.ic_perfil_main)
         icCarritoMain = findViewById(R.id.imageView11)
@@ -137,5 +144,5 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, carritoFragment)
             .addToBackStack("MainToCarrito") // Un tag para esta transacción
             .commit()
-    }
+        }
 }

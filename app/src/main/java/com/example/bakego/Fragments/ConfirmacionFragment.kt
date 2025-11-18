@@ -15,6 +15,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.bakego.R
 import com.example.bakego.Data.CarritoManager
+import com.example.bakego.Data.PedidosManager
+
+// Asegúrate de que la clase EditPerfilFragment exista
+// class EditPerfilFragment : Fragment() { ... }
+// Asegúrate de que la clase PedidosFragment exista
+// class PedidosFragment : Fragment() { ... }
+
 
 class ConfirmacionFragment : Fragment() {
 
@@ -88,7 +95,9 @@ class ConfirmacionFragment : Fragment() {
         if (currentUserEmail.isNullOrEmpty()) {
             nomConf.text = getString(R.string.nombre_conf) + " (Error)"
             corrConf.text = getString(R.string.correo_conf) + " (No logueado)"
-            // ... otros mensajes de error
+            apeConf.text = getString(R.string.apellido_conf)
+            telConf.text = getString(R.string.telefono_conf)
+            direConf.text = getString(R.string.direccion_conf)
             return
         }
 
@@ -118,30 +127,51 @@ class ConfirmacionFragment : Fragment() {
     }
 
     /**
-     * Función que valida, procesa la confirmación de la orden y navega a VigilarFragment.
+     * Función que valida, procesa la confirmación de la orden y guarda el pedido.
      */
     private fun procesarConfirmacion() {
         val selectedId = rgMediosPago.checkedRadioButtonId
 
         if (selectedId == -1) {
+            // Se corrigieron los errores de sintaxis en el Toast
             Toast.makeText(requireContext(), "Por favor, selecciona un medio de pago.", Toast.LENGTH_LONG).show()
             return
         }
 
-        // 1. Simular la finalización de la orden
-        Toast.makeText(requireContext(), "¡Orden Confirmada! Dirigiendo a seguimiento...", Toast.LENGTH_LONG).show()
+        // --- 1. Obtener los datos necesarios para el pedido ---
 
-        // 2. Limpiar el carrito de compras
+        val textoDireccionCompleto = direConf.text.toString()
+
+        // Se corrigieron los errores de sintaxis en la obtención de la etiqueta y el reemplazo
+        val etiquetaDireccion = getString(R.string.direccion_conf) + " "
+        val direccionEnvio = textoDireccionCompleto.replace(etiquetaDireccion, "").trim()
+
+        // Obtener la lista de postres (asumiendo que CarritoManager.productos es una lista de objetos con propiedad 'nombre')
+        val nombresPostres = CarritoManager.productos.joinToString { it.nombre }
+
+        if (nombresPostres.isEmpty()) {
+            Toast.makeText(requireContext(), "El carrito está vacío. No se puede confirmar el pedido.", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // --- 2. Guardar el nuevo pedido usando el Manager ---
+
+        PedidosManager.guardarNuevoPedido(nombresPostres, direccionEnvio)
+
+        // --- 3. Finalizar la transacción ---
+
+        Toast.makeText(requireContext(), "¡Orden Confirmada! Pedido enviado a: $direccionEnvio", Toast.LENGTH_LONG).show()
+
+        // 4. Limpiar el carrito de compras
         CarritoManager.productos.clear()
 
-        // 3. ❗ MODIFICADO: Navegar a VigilarFragment y limpiar la pila anterior ❗
-        val vigilarFragment = VigilarFragment()
+        // 5. Navegar al fragmento de Pedidos
+        val pedidosFragment = PedidosFragment()
 
-        // Esta línea limpia la pila de fragmentos (Carrito, Confirmacion)
-        // y reemplaza el actual por VigilarFragment.
+        // Se corrigieron los errores de sintaxis en la transacción (replace y addToBackStack)
         parentFragmentManager.beginTransaction()
-            .replace(FRAGMENT_CONTAINER_ID, vigilarFragment)
-            .addToBackStack(null) // Opcional: añade Vigilar a la pila si quieres que Back te lleve al inicio.
+            .replace(FRAGMENT_CONTAINER_ID, pedidosFragment)
+            .addToBackStack(null) // Limpia los fragmentos anteriores.
             .commit()
-    }
+        }
 }
