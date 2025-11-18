@@ -9,9 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.bakego.R
-// 🌟 Importación del CarritoManager que ahora está en el paquete Data
 import com.example.bakego.Data.CarritoManager
-// ❗ ELIMINA LA CLASE DE DATOS ProductoCarrito DUPLICADA DE AQUÍ ❗
 
 
 class CarritoFragment : Fragment() {
@@ -36,7 +34,7 @@ class CarritoFragment : Fragment() {
         backButton = view.findViewById(R.id.ic_back_carrito)
         listaProductosTextView = view.findViewById(R.id.tv_lista_productos)
         totalTextView = view.findViewById(R.id.texto_total_carrito)
-        comprarButton = view.findViewById(R.id.btn_add_car) // Asegúrate que el ID sea correcto
+        comprarButton = view.findViewById(R.id.btn_add_car) // ID del botón "Comprar"
 
         // 2. Establecer Listeners
 
@@ -49,7 +47,6 @@ class CarritoFragment : Fragment() {
         comprarButton.setOnClickListener {
             if (CarritoManager.productos.isNotEmpty()) {
                 // LLAMADA A LA FUNCIÓN DE NAVEGACIÓN
-                // Debes asegurarte de que ConfirmacionFragment existe y de que el ID del contenedor es R.id.fragment_container
                 navegarAConfirmacion()
             } else {
                 Toast.makeText(requireContext(), "El carrito está vacío. Añade productos para comprar.", Toast.LENGTH_SHORT).show()
@@ -61,34 +58,31 @@ class CarritoFragment : Fragment() {
     }
 
     /**
-     * Función para navegar a ConfirmacionFragment. (Asumiendo que existe)
+     * Función para navegar a ConfirmacionFragment.
      */
     private fun navegarAConfirmacion() {
-        // Debes implementar ConfirmacionFragment o usar un fragmento existente
-        // val confirmacionFragment = ConfirmacionFragment()
+        // 1. Instancia el fragmento de destino
+        val confirmacionFragment = ConfirmacionFragment()
 
-        // Asumiendo que el contenedor de fragmentos en tu actividad es R.id.fragment_container
-        /*
+        // 2. Ejecuta la transacción del fragmento
         parentFragmentManager.beginTransaction()
+            // ❗ IMPORTANTE: Asegúrate que R.id.fragment_container sea el ID de tu contenedor ❗
             .replace(R.id.fragment_container, confirmacionFragment)
+            // Permite volver al carrito al presionar el botón de atrás
             .addToBackStack(null)
             .commit()
-        */
-        Toast.makeText(requireContext(), "Navegando a confirmación de compra...", Toast.LENGTH_SHORT).show()
     }
 
 
     /**
      * Función para recalcular el total y actualizar el TextView de la lista.
-     * 🌟 Ahora lee del CarritoManager importado.
      */
     private fun actualizarVistaCarrito() {
         var listaTexto = ""
         var total = 0.0
 
-        for (producto in CarritoManager.productos) { // 🌟 Accediendo al Manager
+        for (producto in CarritoManager.productos) {
             val subtotal = producto.precioUnitario * producto.cantidad
-            // Formato básico de lista: Nombre (xCantidad) - $Subtotal
             listaTexto += "${producto.nombre} (x${producto.cantidad}) - $${"%.2f".format(subtotal)}\n"
             total += subtotal
         }
@@ -104,14 +98,9 @@ class CarritoFragment : Fragment() {
         totalTextView.text = "TOTAL: $${"%.2f".format(total)}"
     }
 
-
-    // ❗ ELIMINA el object CarritoManager interno y el companion object ❗
-    // (Ya no son necesarios porque usamos el CarritoManager del paquete Data)
-
-
     override fun onResume() {
         super.onResume()
-        // 🌟 Actualizar la vista cada vez que el fragmento vuelve a estar en primer plano
+        // Actualizar la vista cada vez que el fragmento vuelve a estar en primer plano
         actualizarVistaCarrito()
     }
 }

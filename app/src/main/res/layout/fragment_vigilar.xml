@@ -17,15 +17,45 @@
         android:paddingTop="28dp"
         android:paddingBottom="24dp">
 
-        <TextView
-            android:id="@+id/nom_app_Vigilar"
-            android:layout_width="307dp"
+        <!-- Contenedor para alinear el título y el ícono de la casa -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/kavoon"
-            android:text="@string/app_name"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="55sp"/>
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Nombre de la App (Centrado) -->
+
+            <TextView
+                android:id="@+id/nom_app_Vigilar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kavoon"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="55sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="61dp"
+                android:layout_height="53dp"
+                android:clickable="true"
+                android:contentDescription="Ir a la página de inicio"
+                android:focusable="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_casa"
+                tools:layout_editor_absoluteX="4dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <!-- Icono de la Casa (Derecha) -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/titulo_vigilar"
@@ -85,5 +115,6 @@
             android:text="@string/tiempo_de_espera"
             android:textColor="@color/black"
             android:textSize="20sp"/>
+
     </LinearLayout>
 </ScrollView>
