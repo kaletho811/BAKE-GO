@@ -20,7 +20,7 @@ class GestionAppActivity : AppCompatActivity() {
     private lateinit var buttonContainer: ConstraintLayout
     private lateinit var fragmentContainer: FragmentContainerView
 
-    // ID del contenedor de Fragments
+    // ID del contenedor de Fragments (debe coincidir con activity_gestion_app.xml)
     private val FRAGMENT_CONTAINER_ID = R.id.fragment_container
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +31,11 @@ class GestionAppActivity : AppCompatActivity() {
         btnGestUsu = findViewById(R.id.btn_gest_usu)
         btnGestProd = findViewById(R.id.btn_gest_prod)
 
-        // ¡CLAVE! Inicializar los contenedores según el ID que tienen en el XML
+        // Inicializar los contenedores para controlar la visibilidad
         buttonContainer = findViewById(R.id.button_container)
         fragmentContainer = findViewById(R.id.fragment_container)
 
-        // 2. Asignación de Listeners
+        // 2. Asignación de Listeners para cargar Fragments
         btnGestUsu.setOnClickListener {
             cargarFragmento(GestionUsuFragment())
         }
@@ -43,6 +43,21 @@ class GestionAppActivity : AppCompatActivity() {
         btnGestProd.setOnClickListener {
             cargarFragmento(GestionProdFragment())
         }
+
+        // -----------------------------------------------------------------
+        // 🚨 Lógica CLAVE para Volver Atrás (Solución a la pantalla gris)
+        // -----------------------------------------------------------------
+        supportFragmentManager.addOnBackStackChangedListener {
+            // Comprueba si la pila de Fragments está vacía
+            if (supportFragmentManager.backStackEntryCount == 0) {
+                // Si la pila está vacía, estamos en el estado principal (Activity)
+
+                // Revertir visibilidad: Mostrar botones y ocultar el contenedor de Fragments
+                buttonContainer.visibility = View.VISIBLE
+                fragmentContainer.visibility = View.GONE
+            }
+        }
+        // -----------------------------------------------------------------
     }
 
     private fun cargarFragmento(fragment: Fragment) {
@@ -53,7 +68,7 @@ class GestionAppActivity : AppCompatActivity() {
         // 4. Transacción del Fragment
         supportFragmentManager.beginTransaction()
             .replace(FRAGMENT_CONTAINER_ID, fragment)
-            .addToBackStack(null)
+            .addToBackStack(null) // Esto permite volver a los botones al presionar 'Atrás'
             .commit()
         }
 }
