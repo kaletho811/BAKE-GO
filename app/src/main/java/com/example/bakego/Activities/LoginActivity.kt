@@ -13,10 +13,10 @@ import com.example.bakego.R
 
 
 class LoginActivity : AppCompatActivity() {
-    private val PREFS_NAME = "UserPrefsq   " +
-            ""
+    // ESTA LÍNEA FUE MODIFICADA: Ahora coincide exactamente con RegisterActivity
+    private val PREFS_NAME = "UserPrefs"
 
-    //CONSTANTES DEL ADMINISTRADOR
+    // CONSTANTES DEL ADMINISTRADOR
     private val ADMIN_CORREO = "admin@bakego.com"
     private val ADMIN_CONTRASENA = "admin123"
 
